@@ -1,7 +1,16 @@
-import random
+#Created by Cachat
+try:
+    import random
+    import colorama
+    from colorama import Fore, Style
+except:
+    print("Fatal: ImportLibraries. Try pip install colorama and pip install random")
+    input("OK [Enter]")
+    exit()
 gm = []
 dogs = []
 stv = 0
+ERROR=""
 asdfg=True
 lo=input ("Load? [y/n]: ")
 while True==True:
@@ -89,9 +98,13 @@ def DebugM():
         print ("Debug: Dogs AI offed!")
     if DM == "worldsave":
         print ("Debug: Saved!")
+def ERRORM():
+    print(Fore.RED + ERROR)
+    print(Style.RESET_ALL)
 prmap()
 DebugM()
 while True==True:
+    ERROR=""
     DM = "pos"
     step = input("Command: ")
     if step == "d":
@@ -145,12 +158,32 @@ while True==True:
         DAI = False
         DM = "DAOFF"
     bufer=" "
-    if step == "b":
-        gm[stv] = "█"
-        bufer="█"
+    try:
+        if step == "b":
+            gm[stv] = "█"
+            bufer="█"
+    except:
+        ERROR="BuildError"
     if step == "save":
         handle = open(n, "w")
-        handle.write(str(w) + '\n')
+        handle.wrtry:
+    import random
+    import colorama
+    from colorama import Fore, Style
+except:
+    print("Fatal: ImportLibraries. Try pip install colorama and pip install random")
+    input("OK [Enter]")
+    exit()
+gm = []
+dogs = []
+stv = 0
+ERROR=""
+asdfg=True
+lo=input ("Load? [y/n]: ")
+while True==True:
+    if lo == "y":
+        break
+    if lo == "n":ite(str(w) + '\n')
         handle.write(str(h) + '\n')
         handle.write(str(stv) + '\n')
         handle.write(str(dog) + '\n')
@@ -162,10 +195,13 @@ while True==True:
             handle.write("\n")
         handle.close()
         DM='worldsave'
-    if step == "@":
-        dogs.append(stv)
-        gm[dogs[thisdog]] = "@"
-        dog=dog+1
+    try:
+        if step == "@":
+            dogs.append(stv)
+            gm[dogs[thisdog]] = "@"
+            dog=dog+1
+    except:
+        ERROR="DogBuildError"
     if step == "exit":
         break
     if step == "collision on":
@@ -204,12 +240,13 @@ while True==True:
                         if gm[dogs[thisdog]+w] == " ":
                             gm[dogs[thisdog]+w] = "@"
                             if gm[dogs[thisdog]] == "@":
-                                gm[dogs[thisdog]] = " "
+                               gm[dogs[thisdog]] = " "
                             dogs[thisdog] = dogs[thisdog]+w
             if stv == dogs[thisdog]:
                     dogs.remove(stv)
                     dog=dog-1
     except:
-        print("Dog Error!")
+        ERROR="DogError"
     prmap()
+    ERRORM()
     DebugM()
